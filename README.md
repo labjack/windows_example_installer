@@ -39,6 +39,7 @@ Manually installing LabJack files allows you to put LabJack files wherever you n
 ## What You'll Need
 
 - A [code signing certificate](#sign-your-installer) - note that this can take a week or so to be approved.
+- LabJack files, which can be downloaded from [https://s3.amazonaws.com/lj-amalg-win/latest/Files.zip](https://s3.amazonaws.com/lj-amalg-win/latest/Files.zip)
 - A working knowledge of NSIS. (Don't worry - you can follow LabJack's example and the [NSIS documentation](http://nsis.sourceforge.net/Docs/Contents.html) is concise.)
 
 
@@ -138,7 +139,7 @@ It's not hard. Read on!
 To [compile](http://nsis.sourceforge.net/Docs/Chapter2.html#tutcompiler), use [MakeNSIS](http://nsis.sourceforge.net/Docs/Chapter3.html#usage).
 
 For example:
-`makensis.exe /P2 my_installer.nsi`
+`makensis.exe /P2 lj_amalg.nsi`
 
 
 
@@ -215,7 +216,7 @@ Finally, you'll need to test your installer. You'll want to:
 
 - Make sure files install correctly on all the versions of Windows that you support (XP in particular has some complexities)
 - Make sure files uninstall correctly
-- Beware of REBOOTOK causing problems: When you run the installer, then run the installer again, then reboot, make sure all files are as they should be. Also, you can check the uninstaller log output for "Delete on reboot" (you can right click on the log and copy all the log output).
+- Beware of [`Delete /REBOOTOK`](http://nsis.sourceforge.net/Docs/Chapter4.html#delete) causing problems: When you run the installer, then run the installer again, then reboot, make sure all files are as they should be. Also, you can check the uninstaller log output for "Delete on reboot" (you can right click on the log and copy all the log output).
 
 
 
@@ -275,7 +276,7 @@ If you have lots of changes, you may simply want use the git history of LabJack'
 
 ## Known Issues
 
-- The uninstaller does not delete itself when run as part of the installer (from within `Function .onInit`).
+- The uninstaller does not delete itself when run as part of the installer (from within `Function .onInit`). This is generally not a problem because the installer will be executed immediately after (unless the user aborts installation).
 
 
 
@@ -291,10 +292,7 @@ If you're using this, please let us know how it's working for you. We will try t
 
 ![AtomIsHot](http://files.labjack.com/images/lj_amalg_inst/atom_so_hot_right_now.jpg "Atom Text Editer so hot right now")
 
-Atom may be hot right now, but we use [Sublime Text 3's NSIS plugin](https://github.com/SublimeText/nsis) to highlight syntax. There's probably an equivalent plugin for your favorite text editor, so start searching! Indeed, it looks like [Atom has an NSIS plugin](http://nsis.sourceforge.net/Atom), by the way...
+Atom may be hot right now, but we use [Sublime Text 3's NSIS plugin](https://github.com/SublimeText/nsis) to highlight syntax. There's probably an equivalent plugin for your favorite text editor (such as the Eclipse NSIS plugin, which compiles the .nsi script for you), so start searching! Indeed, it looks like [Atom has an NSIS plugin](http://nsis.sourceforge.net/Atom), by the way...
 
 
 
-## Wishlist
-
-- Check for environment variables to determine whether or not to install certain sections, though one currently exists for `no_labjack_apps`
