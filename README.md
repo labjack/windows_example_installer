@@ -1,4 +1,4 @@
-# LabJack Amalgamate Installer
+# LabJack Windows Example Installer
 
 Deploy your code in a single installer alongside its LabJack dependencies.
 
