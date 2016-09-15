@@ -6,7 +6,7 @@ RequestExecutionLevel admin
 
 # General Symbol Definitions
 !define REGKEY "SOFTWARE\$(^Name)"
-!define VERSION 0.90
+!define VERSION 1.3
 
 !define COMPANY LabJack # Changeme to re-brand!
 !define URL https://labjack.com # Changeme to re-brand!
@@ -213,11 +213,14 @@ Function .onInit
     ${EndIf}
 
     ${If} ${HasDotNet2.0}
-        DetailPrint "Microsoft .NET Framework 2.0 installed."
+    ${OrIf} ${HasDotNet3.0}
+    ${OrIf} ${HasDotNet3.5}
+    ${OrIf} ${HasDotNet4.0}
+        DetailPrint "Microsoft .NET Framework 2.0 or later already installed."
     ${Else}
         MessageBox \
             MB_YESNO \
-            ".NET 2.0 (or later) must be installed to use applications included in this installer.  Would you like to install it now?" \
+            ".NET 2.0 (or later) must be installed to use applications included in this installer.  Would you like to install .NET 3.5 now?" \
             IDNO \
             NoNet
         SetOutPath "$TEMP\$(^Name)"

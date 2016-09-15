@@ -28,6 +28,8 @@ SectionEnd
 
 
 Section -un.labjack_legacy
+    DeleteRegValue HKLM "${REGKEY}\Components" "$(^Name)"
+
     ; Old LabJack uninstallers
     Delete /REBOOTOK "$INSTDIR\uninstallLJUD.exe"
     Delete /REBOOTOK "$INSTDIR\uninstallLJUDM.exe"

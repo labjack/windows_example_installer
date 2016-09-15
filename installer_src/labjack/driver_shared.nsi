@@ -27,6 +27,9 @@ Section -labjack_driver_shared
         ${EnableX64FSRedirection}
     ${EndIf}
 
+    SetOutPath $INSTDIR\Drivers\Install
+    File /r Files\Install\*
+
     ; Call the Driver Package Installer
     ; https://msdn.microsoft.com/en-us/library/windows/hardware/ff544842(v=vs.85).aspx
     DetailPrint "The following command may take a while..."
@@ -35,6 +38,8 @@ Section -labjack_driver_shared
     ${Else}
         ExecWait '"$INSTDIR\Drivers\Install\LabJackx86\dpinst32.exe" /c /sa /f /lm /sw /PATH "$INSTDIR\Drivers\Install\LabJackx86"'
     ${EndIf}
+    ; dpinst returns 256 on success
+
 SectionEnd
 
 Section -labjack_driver_shared_dotnet
@@ -44,5 +49,10 @@ Section -labjack_driver_shared_dotnet
     SetOutPath $INSTDIR\Drivers
     File Files\32-bit\InstallLJNET.exe
     File Files\32-bit\RemoveLJNET.exe
+SectionEnd
+
+
+Section -labjack_legacy
+    WriteRegStr HKLM "${REGKEY}\Components" "$(^Name)" 1
 SectionEnd
 

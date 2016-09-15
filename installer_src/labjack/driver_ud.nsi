@@ -34,9 +34,6 @@ Section -labjack_driver_ud_dotnet
     SetOutPath $INSTDIR\Drivers
     File Files\32-bit\LJUDDotNet.dll
 
-    SetOutPath $INSTDIR\Drivers\Install
-    File /r Files\Install\*
-
     WriteRegStr HKLM "SOFTWARE\Microsoft\.NETFramework\AssemblyFolders\LJUDDotNet" "" "$INSTDIR\Drivers"
     WriteRegStr HKLM "SOFTWARE\Microsoft\.NETFramework\v2.0.50727\AssemblyFoldersEx\LJUDDotNet" "" "$INSTDIR\Drivers"
 
