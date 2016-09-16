@@ -269,7 +269,7 @@ Receive modular updates from LabJack by cloning this repository. Then, pull in u
 
 If you don't have lots of changes, it should be easy to merge your working branch with LabJack's origin master branch.
 
-If you have lots of changes, you may simply want use the git history of LabJack's origin master branch to manually update your installer as needed. (Also, see [Feedback](#feedback) if it gets frustrating or if you have a better way.)
+If you have lots of changes, you may simply want use the git history of LabJack's origin master branch to manually update your installer as needed. (Also, give us [Feedback](#feedback) if it gets frustrating or if you have a better way.)
 
 
 
@@ -284,15 +284,6 @@ If you have lots of changes, you may simply want use the git history of LabJack'
 ## Feedback
 
 If you're using this, please let us know how it's working for you. We will try to make it better for you (if you let us know how) because we want you to succeed!
-
-
-
-
-## Cool Stuff?
-
-![AtomIsHot](http://files.labjack.com/images/lj_amalg_inst/atom_so_hot_right_now.jpg "Atom Text Editer so hot right now")
-
-Atom may be hot right now, but we use [Sublime Text 3's NSIS plugin](https://github.com/SublimeText/nsis) to highlight syntax. There's probably an equivalent plugin for your favorite text editor (such as the Eclipse NSIS plugin, which compiles the .nsi script for you), so start searching! Indeed, it looks like [Atom has an NSIS plugin](http://nsis.sourceforge.net/Atom), by the way...
 
 
 
