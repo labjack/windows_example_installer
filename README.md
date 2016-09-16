@@ -1,6 +1,6 @@
 # LabJack Windows Example Installer
 
-Deploy your code in a single installer alongside its LabJack dependencies.
+Deploy your code in a single installer alongside its [LabJack](https://labjack.com/) dependencies.
 
 We've done the hard parts, so to get started you'll [add your files](#add-your-files) to a LabJack-based [NSIS installer](http://nsis.sourceforge.net/Docs/Chapter1.html#). From there, you can [re-brand](#re-brand-your-installer) and [prepare your installer](#preparing-your-installer-for-distribution) for distribution.
 
